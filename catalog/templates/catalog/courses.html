@@ -1,0 +1,20 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}{{ title }}{% endblock %}
+
+{% block content %}
+    {% if courses %}
+        {% for course in courses %}
+        <div class="course-item">
+            <h3><a href="{% url 'course_detail' course_slug=course.slug %}">{{ course.title }}</a></h3>
+            <p>{{ course.description|slice:":100" }}...</p>
+            {# На главной/списке покажем ID автора, а на детальной странице автора - его имя #}
+            <p>Автор ID: {{ course.author_id }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Курсы пока не добавлены.</p>
+    {% endif %}
+{% endblock %}

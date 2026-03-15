@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}{{ title }}{% endblock %}
+
+{% block content %}
+    {% if author %}
+        <h2>{{ author.name }}</h2>
+        <p>{{ author.bio }}</p>
+
+        <h3>Курсы, которые преподает автор:</h3>
+        {% if courses %}
+            <ul>
+                {% for course in courses %}
+                    <li><a href="{% url 'course_detail' course_slug=course.slug %}">{{ course.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Автор пока не преподает курсы.</p>
+        {% endif %}
+        <p><a href="{% url 'authors' %}">Назад к списку авторов</a></p>
+    {% else %}
+        <p class="error-message">Автор не найден.</p>
+        <p><a href="{% url 'authors' %}">Перейти к списку авторов</a></p>
+    {% endif %}
+{% endblock %}
