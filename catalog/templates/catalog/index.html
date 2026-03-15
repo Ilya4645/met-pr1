@@ -13,8 +13,6 @@
         <div class="course-item">
             <h3><a href="{% url 'course_detail' course_slug=course.slug %}">{{ course.title }}</a></h3>
             <p>{{ course.description|slice:":100" }}...</p>
-                <p>Автор: {{ course.author_id }}</p>
-            {{ endwith }}
         </div>
         {% endfor %}
     {% else %}

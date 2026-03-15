@@ -9,7 +9,7 @@ COURSES = [
     {
         'id': 2,
         'title': 'Машинное обучение для начинающих',
-        'description': 'Погружение в мир ML.',
+        'description': 'Погружение в мир машинного обучения.',
         'author_id': 2,
         'slug': 'ml-for-beginners'
     },
