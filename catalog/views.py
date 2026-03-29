@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseNotFound
+from django.template import RequestContext
 from .constants import COURSES, AUTHORS, get_course_by_id, get_author_by_id, get_course_by_slug
 import os
 
@@ -77,3 +78,6 @@ def info_page(request):
         'title': 'Информация о сайте'
     }
     return render(request, 'catalog/info.html', context)
+
+def page_not_found_view(request, exception):
+    return render(request, 'catalog/not_found.html', status=404)
